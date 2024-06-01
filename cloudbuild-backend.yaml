@@ -1,7 +1,8 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/redesigned-fiesta/wally-backend:$COMMIT_SHA', '-f', './wally-registry-backend/Dockerfile', './wally-registry-backend']
+    args: ['build', '-t', 'gcr.io/redesigned-fiesta/wally-backend:$COMMIT_SHA', '-f', 'wally-registry-backend/Dockerfile', '.']
+    dir: 'wally-registry-backend'
   
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
